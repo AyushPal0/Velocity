@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { generateStory } from "./api";
+import InkText from "./components/InkText";
+import "./index.css";
 
 function App() {
   const [input, setInput] = useState("");
@@ -24,32 +26,41 @@ function App() {
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <h1>AI Dynamic Story Game</h1>
+    <div className="book-container">
+      <h1 className="glow" style={{ fontFamily: "Cinzel" }}>
+        Game Idea Generator: Craft Your Own Adventure!
+      </h1>
 
       <textarea
-        rows="4"
-        cols="50"
+        rows="3"
+        style={{ width: "100%", padding: "10px" }}
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        placeholder="A dragon guarding a forgotten kingdom..."
       />
 
-      <br />
-      <button onClick={handleGenerate}>Generate</button>
+      <button className="magic-button" onClick={handleGenerate}>
+        Summon Story ✨
+      </button>
 
       {story && (
         <div>
-          <h2>World Lore</h2>
-          <p>{story.world_lore}</p>
+          <h2 className="glow">World Lore</h2>
+          <p style={{ color: "red" }}>
+  {story.world_lore}
+</p>
 
           <h3>Mission</h3>
-          <p>{story.mission}</p>
+          <p style={{ color: "red" }}>
+  {story.world_lore}
+</p>
 
           <h3>Choices</h3>
           {story.choices &&
             story.choices.map((choice) => (
               <button
                 key={choice.id}
+                className="magic-button"
                 onClick={() => setInput(choice.text)}
               >
                 {choice.text}

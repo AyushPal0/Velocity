@@ -1,13 +1,60 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  background-color: #f4ecd8;
+  font-family: 'Cormorant Garamond', serif;
+  color: #3e2f1c;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Golden glow effect */
+.glow {
+  color: #b8860b;
+  text-shadow: 0 0 10px #d4af37, 0 0 20px #d4af37;
+}
+
+/* Book container */
+.book-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 40px;
+  background: rgba(255, 248, 220, 0.9);
+  border: 8px solid #8b5a2b;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Buttons */
+.magic-button {
+  background: linear-gradient(45deg, #b8860b, #d4af37);
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  color: black;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.magic-button:hover {
+  box-shadow: 0 0 15px #d4af37;
+  transform: scale(1.05);
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 20%, rgba(255, 223, 150, 0.2), transparent 60%);
+  animation: flicker 3s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.8; }
+  100% { opacity: 1; }
 }
